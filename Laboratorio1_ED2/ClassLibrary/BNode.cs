@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    class BNode<T> : IFixedSizeText where T : IComparable, IFixedSizeText, new()
+    class BNode<T> : IFixedSizeText where T : IComparable, IFixedSizeText, new()// Agregar new() para un nuevo objeto
     {
         public int ID;
         public int Degree;
