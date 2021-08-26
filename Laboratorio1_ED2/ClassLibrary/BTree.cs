@@ -165,7 +165,30 @@ namespace ClassLibrary
                 Write(node.ToFixedString(), node.ID);
             }
         }
-
+        public T Search(T val)
+        {
+            if (Root != 0)
+            {
+                int pos = SearchNode(Root, val);
+                if (pos != 0)
+                {
+                    var node = ChargeNode(pos);
+                    for (int i = 0; i < Degree - 1; i++)
+                    {
+                        if (node.Values[i] != null)
+                        {
+                            if (val.CompareTo(node.Values[i]) == 0)
+                                return val;
+                        }
+                    }
+                    return default;
+                }
+                else
+                    return default;
+            }
+            else
+                return default;
+        }
         public bool Delete(T val)
         {
             if (Root != 0)
