@@ -10,8 +10,8 @@ namespace ClassLibrary
         private readonly string Path;
         private readonly int Degree;
         private readonly int ValueTextLength;
-        private int NextPosition;
-        private int Root;
+        public int NextPosition;
+        public int Root;
         public BTree(string path, int degree, int valLength)
         {
             Path = path;
@@ -189,6 +189,7 @@ namespace ClassLibrary
             else
                 return default;
         }
+
         public bool Delete(T val)
         {
             if (Root != 0)
@@ -535,6 +536,89 @@ namespace ClassLibrary
                 writer.WriteLine(sample.ToFixedString());
                 Root = 1;
                 NextPosition = 2;
+            }
+        }
+        public void Clear()
+        {
+            File.Delete(Path);
+            Root = 0;
+            NextPosition = 1;
+        }
+
+        public List<T> Preorden()
+        {
+            if (Root != 0)
+            {
+                List<T> path = new List<T>();
+                Preorden(ChargeNode(Root), path);
+                return path;
+            }
+            else
+                return new List<T>();
+        }
+
+        private void Preorden(BNode<T> pos, List<T> path)
+        {
+            for (int i = 0; i < Degree - 1; i++)
+            {
+                if (pos.Values[i] != null)
+                    path.Add(pos.Values[i]);
+            }
+            for (int i = 0; i < Degree; i++)
+            {
+                if (pos.Sons[i] != 0)
+                    Preorden(ChargeNode(pos.Sons[i]), path);
+            }
+        }
+
+        public List<T> Inorden()
+        {
+            if (Root != 0)
+            {
+                List<T> path = new List<T>();
+                Inorden(ChargeNode(Root), path);
+                return path;
+            }
+            else
+                return new List<T>();
+        }
+
+        private void Inorden(BNode<T> pos, List<T> path)
+        {
+            for (int i = 0; i < Degree - 1; i++)
+            {
+                if (pos.Sons[i] != 0)
+                    Inorden(ChargeNode(pos.Sons[i]), path);
+                if (pos.Values[i] != null)
+                    path.Add(pos.Values[i]);
+            }
+            if (pos.Sons[Degree - 1] != 0)
+                Inorden(ChargeNode(pos.Sons[Degree - 1]), path);
+        }
+
+        public List<T> Postorden()
+        {
+            if (Root != 0)
+            {
+                List<T> path = new List<T>();
+                Postorden(ChargeNode(Root), path);
+                return path;
+            }
+            else
+                return new List<T>();
+        }
+
+        private void Postorden(BNode<T> pos, List<T> path)
+        {
+            for (int i = 0; i < Degree; i++)
+            {
+                if (pos.Sons[i] != 0)
+                    Postorden(ChargeNode(pos.Sons[i]), path);
+            }
+            for (int i = 0; i < Degree - 1; i++)
+            {
+                if (pos.Values[i] != null)
+                    path.Add(pos.Values[i]);
             }
         }
     }
