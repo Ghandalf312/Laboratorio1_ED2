@@ -29,22 +29,13 @@ namespace BTreeTest
                 int backmenu = 0;
                 do
                 {
-                    Console.WriteLine("¿Qué desea hacer? \n 1.Ingresarlos datos a través de comas \n 2. Cargar un archivo de texto");
-                    int op = int.Parse(Console.ReadLine());
-                    switch (op)
-                    {
-                        case 1:
-                            Console.WriteLine("Ingrese los valores \n ejemplo [36,58,1,69,2,5,3,8,7,6,1,5,8,2]");
-                            var val = Console.ReadLine().Split(',');
-                            foreach (var n in val)
-                                tree.Add(new FixedInt { Value = int.Parse(n) });
-                            break;
-                        case 2:
-                            Console.WriteLine("Coloque la ruta del txt sobre de la consola");
-                            string dir = Console.ReadLine();
-                            Insertartxt(dir, tree);
-                            break;
-                    }
+                  
+                    Console.WriteLine("Ingrese los valores \n ejemplo [36,58,1,69,2,5,3,8,7,6,1,5,8,2]");
+                    var val = Console.ReadLine().Split(',');
+                    foreach (var n in val)
+                    tree.Add(new FixedInt { Value = int.Parse(n) });
+             
+             
                     Console.WriteLine("¿Desea seguir ingresando valores? \n 1.Si 2.No");
                     backmenu = int.Parse(Console.ReadLine());
                 } while (backmenu == 1);
