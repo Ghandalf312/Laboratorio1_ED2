@@ -6,11 +6,11 @@ namespace ClassLibrary
 {
     class BNode<T> : IFixedSizeText where T : IComparable, IFixedSizeText, new()// Agregar new() para un nuevo objeto
     {
-        private int ID;
-        private int Degree;
-        private int Father;
-        private T[] Values;
-        private int[] Sons;
+        public int ID;
+        public int Degree;
+        public int Father;
+        public T[] Values;
+        public int[] Sons;
         public int TextLength => ToFixedString().Length;
         private int ValueTextLength;
 

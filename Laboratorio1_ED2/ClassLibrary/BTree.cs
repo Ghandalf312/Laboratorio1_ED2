@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    class BTree<T> where T : IComparable, IFixedSizeText, new()
+    public class BTree<T> where T : IComparable, IFixedSizeText, new()
     {
         private readonly string Path;
         private readonly int Degree;
