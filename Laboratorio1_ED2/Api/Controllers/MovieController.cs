@@ -70,5 +70,57 @@ namespace api.Controllers
             }
             return Ok();
         }
+
+
+        [HttpPost]
+        [Route("populate")]
+        public IActionResult Add([FromBody] List<Movie> list)
+        {
+            try
+            {
+                if (Singleton.Instance.Tree != null)
+                {
+                    foreach (var item in list)
+                    {
+                        item.SetID();
+                        Singleton.Instance.Tree.Add(item);
+                    }
+                    return Ok();
+                }
+                else
+                    return StatusCode(500);
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+    
+
+        [HttpDelete]
+        [Route("populate/{id}")]
+        public IActionResult Delete(string id)
+        {
+            try
+            {
+                if (Singleton.Instance.Tree != null)
+                {
+                    var item = new Movie();
+                    item.SetID(id);
+                    if (Singleton.Instance.Tree.Delete(item))
+                        return Ok();
+                    else
+                        return NotFound();
+                }
+                else
+                    return StatusCode(500);
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
+
     }
 }
