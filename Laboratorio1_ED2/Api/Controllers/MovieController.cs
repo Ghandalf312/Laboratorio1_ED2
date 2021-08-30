@@ -32,15 +32,15 @@ namespace api.Controllers
 
         [HttpGet]
         [Route("{traversal}")]
-        public IEnumerable<Movie> Get(string travesal)
+        public IEnumerable<Movie> Get(string traversal)
         {
             if (Singleton.Instance.Tree == null)
                 return null;
-            else if (travesal == "preorden")
+            else if (traversal == "preorden")
                 return Singleton.Instance.Tree.Preorden();
-            else if (travesal == "inorden")
+            else if (traversal == "inorden")
                 return Singleton.Instance.Tree.Inorden();
-            else if (travesal == "postorden")
+            else if (traversal == "postorden")
                 return Singleton.Instance.Tree.Postorden();
             else
                 return null;
@@ -120,7 +120,5 @@ namespace api.Controllers
                 return StatusCode(500);
             }
         }
-
-
     }
 }
