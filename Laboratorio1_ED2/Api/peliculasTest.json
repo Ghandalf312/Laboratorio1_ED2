@@ -1,0 +1,50 @@
+[
+    {
+        "director": "Diego Morales",
+        "imdbRating": 5.1,
+        "genre": "Horror",
+        "releaseDate": "Dec 03 2000",
+        "rottenTomatoesRating": 0,
+        "title": "Amsiedad"
+    },
+    {
+        "director": null,
+        "imdbRating": 7.5,
+        "genre": "Musical",
+        "releaseDate": "Dec 11 1968",
+        "rottenTomatoesRating": 84,
+        "title": "Oliver!"
+    },
+    {
+        "director": "Jaume Collet-Serra",
+        "imdbRating": 7.1,
+        "genre": "Adventure",
+        "releaseDate": "Jul 28 2021",
+        "rottenTomatoesRating": 6,
+        "title": "Jungle Cruise"
+    },
+    {
+        "director": "Robert Zemeckis",
+        "imdbRating": 9.1,
+        "genre": "Comedy",
+        "releaseDate": "Jul 03 1985",
+        "rottenTomatoesRating": 0,
+        "title": "Back To The Future"
+    },
+    {
+        "director": "Matthew Vaughn",
+        "imdbRating": 7.1,
+        "genre": "Action",
+        "releaseDate": "Mar 22 2010",
+        "rottenTomatoesRating": 0,
+        "title": "Kick Ass"
+    },
+    {
+        "director": "Steven Spielberg",
+        "imdbRating": 9.9,
+        "genre": "Fantasy",
+        "releaseDate": "Mar 28 2018",
+        "rottenTomatoesRating": 0,
+        "title": "Ready Player One"
+    }
+]
